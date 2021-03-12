@@ -1,4 +1,4 @@
-package io.swagger;
+package com.waracle;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration"})
+@ComponentScan(basePackages = {"io.swagger", "io.swagger.api", "io.swagger.configuration"})
 public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Override
@@ -25,6 +25,7 @@ public class Swagger2SpringBoot implements CommandLineRunner {
     }
 
     class ExitException extends RuntimeException implements ExitCodeGenerator {
+
         private static final long serialVersionUID = 1L;
 
         @Override

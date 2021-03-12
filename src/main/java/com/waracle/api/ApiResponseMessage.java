@@ -1,4 +1,4 @@
-package io.swagger.api;
+package com.waracle.api;
 
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @javax.xml.bind.annotation.XmlRootElement
 public class ApiResponseMessage {
+
     public static final int ERROR = 1;
     public static final int WARNING = 2;
     public static final int INFO = 3;
@@ -16,29 +17,30 @@ public class ApiResponseMessage {
     String type;
     String message;
 
-    public ApiResponseMessage(){}
+    public ApiResponseMessage() {
+    }
 
-    public ApiResponseMessage(int code, String message){
+    public ApiResponseMessage(int code, String message) {
         this.code = code;
-        switch(code){
-        case ERROR:
-            setType("error");
-            break;
-        case WARNING:
-            setType("warning");
-            break;
-        case INFO:
-            setType("info");
-            break;
-        case OK:
-            setType("ok");
-            break;
-        case TOO_BUSY:
-            setType("too busy");
-            break;
-        default:
-            setType("unknown");
-            break;
+        switch (code) {
+            case ERROR:
+                setType("error");
+                break;
+            case WARNING:
+                setType("warning");
+                break;
+            case INFO:
+                setType("info");
+                break;
+            case OK:
+                setType("ok");
+                break;
+            case TOO_BUSY:
+                setType("too busy");
+                break;
+            default:
+                setType("unknown");
+                break;
         }
         this.message = message;
     }
@@ -56,7 +58,7 @@ public class ApiResponseMessage {
         return type;
     }
 
-    public void setType(String type) {
+    public final void setType(String type) {
         this.type = type;
     }
 
