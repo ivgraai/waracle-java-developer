@@ -3,6 +3,7 @@ package com.waracle;
 import com.waracle.model.Cake;
 import com.waracle.repository.CakeRepository;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
@@ -21,8 +22,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan(basePackages = {"com.waracle", "com.waracle.api", "com.waracle.configuration"})
 public class Swagger2SpringBoot implements CommandLineRunner {
 
-    // TODO: Read it from parameter file
-    private static final String URI_DATA_SOURCE = "https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json";
+    @Value("${waracle.datasource}")
+    private String URI_DATA_SOURCE;
 
     @Override
     public void run(String... arg0) throws Exception {
