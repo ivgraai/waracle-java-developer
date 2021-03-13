@@ -44,7 +44,7 @@ public class Swagger2SpringBoot implements CommandLineRunner {
                 ResponseEntity<List<Cake>> response = restTemplate.exchange(URI_DATA_SOURCE, HttpMethod.GET, null, new ParameterizedTypeReference<List<Cake>>() {
                     });
                 List<Cake> cakes = response.getBody();
-                repository.save(cakes);
+                repository.saveAll(cakes);
             }
         };
     }
