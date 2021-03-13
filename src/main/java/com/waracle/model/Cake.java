@@ -1,17 +1,28 @@
 package com.waracle.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import org.springframework.validation.annotation.Validated;
 
 /**
  * Cake
  */
+@Entity
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-03-12T11:39:55.360Z")
 
-public class Cake {
+public class Cake implements Serializable {
+
+    @Id
+    @GeneratedValue
+    @JsonIgnore
+    private Long id;
 
     @JsonProperty("title")
     private String title = null;
@@ -25,6 +36,14 @@ public class Cake {
     public Cake title(String title) {
         this.title = title;
         return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -94,14 +113,12 @@ public class Cake {
             return false;
         }
         Cake cake = (Cake) o;
-        return Objects.equals(this.title, cake.title)
-                && Objects.equals(this.desc, cake.desc)
-                && Objects.equals(this.image, cake.image);
+        return Objects.equals(this.id, cake.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, desc, image);
+        return Objects.hash(id);
     }
 
     @Override
@@ -109,6 +126,9 @@ public class Cake {
         StringBuilder sb = new StringBuilder();
         sb.append("class Cake {\n");
 
+        if (null != id) {
+            sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        }
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    desc: ").append(toIndentedString(desc)).append("\n");
         sb.append("    image: ").append(toIndentedString(image)).append("\n");
