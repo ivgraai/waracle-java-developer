@@ -9,15 +9,12 @@ class Tablazat extends React.Component {
     }
 
     render() {
-        if (this.state.clicked) {
-            return 'You already clicked.';
-        }
-
-        return e(
-                'button',
-                {onClick: () => this.setState({clicked: true})},
-                'Click'
-                );
+        return (
+                this.state.clicked ? 'You already clicked.' :
+                <button onClick={() => this.setState({ clicked: true })}>
+                    Click
+                </button>
+            );
     }
 }
 
