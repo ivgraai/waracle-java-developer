@@ -6,7 +6,6 @@
 package com.waracle.api;
 
 import io.swagger.annotations.*;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +23,6 @@ public interface DefaultApi {
     @RequestMapping(value = "/",
             produces = {"text/html"},
             method = RequestMethod.GET)
-    ResponseEntity<Void> rootGet();
+    String rootGet();
 
 }

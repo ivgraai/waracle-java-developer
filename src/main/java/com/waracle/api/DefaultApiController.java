@@ -3,8 +3,6 @@ package com.waracle.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,9 +24,9 @@ public class DefaultApiController implements DefaultApi {
     }
 
     @Override
-    public ResponseEntity<Void> rootGet() {
+    public String rootGet() {
         String accept = request.getHeader("Accept");
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return "index.html";
     }
 
 }
