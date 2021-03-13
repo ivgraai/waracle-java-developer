@@ -1,6 +1,7 @@
 package com.waracle.repository;
 
 import com.waracle.model.Cake;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface CakeRepository extends CrudRepository<Cake, Long> {
 
-    // empty class
+    @Override
+    List<Cake> findAll();
 
 }
