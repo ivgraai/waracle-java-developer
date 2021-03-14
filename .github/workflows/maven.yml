@@ -21,6 +21,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B clean package --file pom.xml
     - name: Verify the artifact
-      run: mvn -B clean verify
+      run: mvn -B clean verify -DskipTests
     - name: Build an image
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=waracle/cake-manager:latest
